@@ -20,13 +20,23 @@
 			
 			/* Background texture */
 			body {
-				background-color: var(--bg);
-				background-image: url('https://www.transparenttextures.com/patterns/inspiration-geometry.png');
+				background-color: #f4f6fb; /* clean light bluish-gray background */
+				background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* structured geometric pattern */
+				background-repeat: repeat;
+				background-size: auto;
 				animation: subtleBackgroundMove 60s linear infinite;
 				color: var(--text);
 				line-height: 1.6;
 				overflow-x: hidden;
-			}
+			}.container {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.547); /* semi-transparent */
+	backdrop-filter: blur(6px);
+}
+
+
 			
 			@keyframes subtleBackgroundMove {
 				0% { background-position: 0 0; }
@@ -91,15 +101,17 @@
 			}
 
 			.header {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 2rem 0;
-				position: sticky;
-				top: 0;
-				background: var(--bg);
-				z-index: 1000;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 2rem 0;
+			position: sticky;
+			top: 0;
+			background-color: rgba(244, 246, 251, 0.6); /* light transparent */
+			backdrop-filter: blur(6px); /* subtle glassy effect */
+			z-index: 1000;
 			}
+
 
 			.nav {
 				display: flex;
@@ -532,9 +544,10 @@
     Explore My Work
 </a></button>
 				</div>
-				<img src="images/picme.jpeg" alt="Rajat Sharma" class="profile-img">
+				<img src="images/myImage-1.jpg" alt="Vipin Gautam" class="profile-img">
 			</section>
-
+			
+			
 			<!-- Enhanced What's New Section -->
 			<section class="whats-new-enhanced">
 			  <div class="wn-header">
@@ -637,62 +650,96 @@
 				</button>
 				<ul class="publication-list">
 					<li class="publication-item" data-category="low-cost-sensors">
+						<h4>UAV Based Aerial Object Imagery for Animal Ecology</h4>
+						<p>International Conference On Emerging Technology In Autonomous Aerial Vehicles (ETAAV), IISC Bangalore • 2025 </p>
+						<!-- <a href="https://ieeexplore.ieee.org/document/10884119" target="_blank">View Paper →</a> -->
+					</li>
+
+					<li class="publication-item" data-category="aerosols-exposure">
+						<h4>AI-Powered Surveillance for Smart Cities</h4>
+						<p>Book: Internet of Vehicles and Computer Vision Solutions for Smart City Transformations • 2025 </p>
+						<a href="https://link.springer.com/chapter/10.1007/978-3-031-72959-1_11" target="_blank">View Paper →</a>
+					</li>
+
+					<li class="publication-item" data-category="low-cost-sensors">
 						<h4>VATML: Towards On Device Ventricular Arrhythmia Detection using TinyML</h4>
-						<p>IEEE International Symposium on Smart Electronic Systems (iSES) • 2024 | Best Paper</p>
+						<p>IEEE International Symposium on Smart Electronic Systems (iSES) • 2024 | 🏅Best Paper</p>
 						<a href="https://ieeexplore.ieee.org/document/10884119" target="_blank">View Paper →</a>
 					</li>
+
 					<li class="publication-item" data-category="low-cost-sensors">
 						<h4>SkyGuard: Semi-Supervised Drone Technology for Real-time Traffic Rule Enforcement</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings | Best Paper</p>
+						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings | 🏅Best Paper</p>
 						<!-- <a href="https://www.sciencedirect.com/science/article/pii/S2590162125000218?via%3Dihub" target="_blank">View Paper →</a> -->
 					</li>
-					<li class="publication-item" data-category="air-quality">
-						<h4>YOLORe-IDNet: An Efficient Multi-Camera System for Person-Tracking</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2023</p>
-						<a href="https://doi.org/10.1007/978-3-031-58181-6_16" target="_blank">View Paper →</a>
-					</li>
-					<li class="publication-item" data-category="aerosols-exposure">
-						<h4>Joint-YODNet: A Light-weight Object Detector for UAVs to Achieve Above 100fps.</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2023</p>
-						<a href="https://doi.org/10.1007/978-3-031-58174-8_47" target="_blank">View Paper →</a>
-					</li>
+
 					<li class="publication-item" data-category="low-cost-sensors">
 						<h4>HyP-ECA: An Attention for Aerial Tree Crown Delineation and Species classification</h4>
 						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings</p>
 						<!-- <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000055" target="_blank">View Paper →</a> -->
-					</li>	
+					</li>
+
 					<li class="publication-item" data-category="low-cost-sensors">
 						<h4>SegCapNet: Enhancing E-Commerce Visual Search with U2-Net Segmentation and BLIP Captioning</h4>
 						<p>International Intelligent Computing and Technology Conference (ICTCon)  • 2024 | In Proceedings</p>
 						<!-- <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000055" target="_blank">View Paper →</a> -->
 					</li>
+
 					<li class="publication-item" data-category="aerosols-exposure">
 						<h4>YOLOv9++: An Improved YOLOv9 Detector for Plant Biometrics using Pseudo-Labels</h4>
 						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings</p>
 						<!-- <a href="https://www.mdpi.com/2413-8851/7/2/38" target="_blank">View Paper →</a> -->
 					</li>
+				
+					<li class="publication-item" data-category="air-quality">
+						<h4>YOLORe-IDNet: An Efficient Multi-Camera System for Person-Tracking</h4>
+						<p>International Conference on Computer Vision and Image Processing • 2023</p>
+						<a href="https://doi.org/10.1007/978-3-031-58181-6_16" target="_blank">View Paper →</a>
+					</li>
+
+					<li class="publication-item" data-category="aerosols-exposure">
+						<h4>Joint-YODNet: A Light-weight Object Detector for UAVs to Achieve Above 100fps.</h4>
+						<p>International Conference on Computer Vision and Image Processing • 2023</p>
+						<a href="https://doi.org/10.1007/978-3-031-58174-8_47" target="_blank">View Paper →</a>
+					</li>
 				</ul>
 			</section>
 
-			<footer class="footer" id="contact">
-				<div>
-					<h3>Connect</h3>
-					<p>vipin24231104@iitgoa.ac.in</p>
-					<button>Download CV</button>
+			<footer class="footer" id="contact" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; padding: 2rem;">
+			<!-- Connect Section -->
+			<div style="min-width: 250px;">
+				<h3>Connect</h3>
+				<p>
+				<i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+				<a href="mailto:vipin24231104@iitgoa.ac.in" style="text-decoration: none; color: inherit;">
+					vipin24231104@iitgoa.ac.in
+				</a>
+				</p>
+				<a href="https://drive.google.com/uc?export=download&id=1hvcWyS2lwhKAGqc1tGX46HvbbFcOdcun" target="_blank" rel="noopener">
+				<button style="margin-top: 0.5rem;">Download CV</button>
+				</a>
+			</div>
+
+			<!-- Network Section -->
+			<div style="min-width: 250px;">
+				<h3>Network</h3>
+				<div style="display: flex; flex-direction: row; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+				<a href="https://scholar.google.com/citations?user=qDlyTJIAAAAJ&hl=en" target="_blank" title="Google Scholar" style="text-decoration: none; color: inherit;">
+					<i class="fas fa-graduation-cap" style="font-size: 1.5rem;"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/vipin-gautam-1906/" target="_blank" title="LinkedIn" style="text-decoration: none; color: inherit;">
+					<i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
+				</a>
 				</div>
-				<div>
-					<h3>Network</h3>
-					<div style="display: flex; gap: 1rem;">
-						<a href="https://scholar.google.com/citations?user=qDlyTJIAAAAJ&hl=en" target="_blank" style="text-decoration: none; color: inherit;" title="Google Scholar">
-							<i class="fas fa-graduation-cap" style="font-size: 1.5rem;"></i>
-						</a>
-						<a href="https://www.linkedin.com/in/vipin-gautam-1906/" target="_blank" style="text-decoration: none; color: inherit;" title="LinkedIn">
-							<i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
-						</a>
-					</div>
-					<p>IIT Goa Campus<br> Center for Drone Applications <br> Indian Insitute of Technology Goa, Farmagudi, Goa 403401 <br>https://iitgoa.ac.in/</p>
-				</div>
+				<p>
+				IIT Goa Campus<br>
+				Center for Drone Applications <br>
+				Indian Institute of Technology Goa, Farmagudi, Goa 403401 <br>
+				<a href="https://iitgoa.ac.in/" target="_blank" style="text-decoration: none; color: inherit;">https://iitgoa.ac.in/</a>
+				</p>
+			</div>
 			</footer>
+
 		</div>
 
 		<script>

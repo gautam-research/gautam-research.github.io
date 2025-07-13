@@ -25,12 +25,23 @@
         }
 
         body {
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+				background-color: #f4f6fb; /* clean light bluish-gray background */
+				background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* structured geometric pattern */
+				background-repeat: repeat;
+				background-size: auto;
+				animation: subtleBackgroundMove 60s linear infinite;
+				color: var(--text);
+				line-height: 1.6;
+				overflow-x: hidden;
+			}.container {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.547); /* semi-transparent */
+	backdrop-filter: blur(6px);
+}
 
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -38,13 +49,16 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 0;
-            background: var(--bg);
-            z-index: 1000;
-        }
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 2rem 0;
+			position: sticky;
+			top: 0;
+			background-color: rgba(244, 246, 251, 0.6); /* light transparent */
+			backdrop-filter: blur(6px); /* subtle glassy effect */
+			z-index: 1000;
+			}
 
         .nav {
             display: flex;
@@ -345,9 +359,9 @@
 
     <header class="header">
         <h1 style="font-size: 25px;">Vipin Gautam</h1>
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <!-- <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
-        </div>
+        </div> -->
         <nav class="nav">
             <a href="index.html">Home</a>
             <a href="index.html#research">Research</a>
@@ -445,25 +459,40 @@
         </div>
     </div>
 
-    <footer class="footer" id="contact">
-				<div>
-					<h3>Connect</h3>
-					<p>vipin24231104@iitgoa.ac.in</p>
-					<button>Download CV</button>
+   			<footer class="footer" id="contact" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; padding: 2rem;">
+			<!-- Connect Section -->
+			<div style="min-width: 250px;">
+				<h3>Connect</h3>
+				<p>
+				<i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+				<a href="mailto:vipin24231104@iitgoa.ac.in" style="text-decoration: none; color: inherit;">
+					vipin24231104@iitgoa.ac.in
+				</a>
+				</p>
+				<a href="https://drive.google.com/uc?export=download&id=1hvcWyS2lwhKAGqc1tGX46HvbbFcOdcun" target="_blank" rel="noopener">
+				<button style="margin-top: 0.5rem;">Download CV</button>
+				</a>
+			</div>
+
+			<!-- Network Section -->
+			<div style="min-width: 250px;">
+				<h3>Network</h3>
+				<div style="display: flex; flex-direction: row; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+				<a href="https://scholar.google.com/citations?user=qDlyTJIAAAAJ&hl=en" target="_blank" title="Google Scholar" style="text-decoration: none; color: inherit;">
+					<i class="fas fa-graduation-cap" style="font-size: 1.5rem;"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/vipin-gautam-1906/" target="_blank" title="LinkedIn" style="text-decoration: none; color: inherit;">
+					<i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
+				</a>
 				</div>
-				<div>
-					<h3>Network</h3>
-					<div style="display: flex; gap: 1rem;">
-						<a href="https://scholar.google.com/citations?user=qDlyTJIAAAAJ&hl=en" target="_blank" style="text-decoration: none; color: inherit;" title="Google Scholar">
-							<i class="fas fa-graduation-cap" style="font-size: 1.5rem;"></i>
-						</a>
-						<a href="https://www.linkedin.com/in/vipin-gautam-1906/" target="_blank" style="text-decoration: none; color: inherit;" title="LinkedIn">
-							<i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
-						</a>
-					</div>
-					<p>IIT Goa Campus<br> Center for Drone Applications <br> Indian Insitute of Technology Goa, Farmagudi, Goa 403401 <br>https://iitgoa.ac.in/</p>
-				</div>
-	</footer>
+				<p>
+				IIT Goa Campus<br>
+				Center for Drone Applications <br>
+				Indian Institute of Technology Goa, Farmagudi, Goa 403401 <br>
+				<a href="https://iitgoa.ac.in/" target="_blank" style="text-decoration: none; color: inherit;">https://iitgoa.ac.in/</a>
+				</p>
+			</div>
+			</footer>
 
 </div>
 
