@@ -288,16 +288,20 @@
                 font-size: 1rem;
             }
 
-            /* Hamburger menu */
-            .menu-toggle {
-                display: block; /* Show on mobile */
-                font-size: 1.5rem;
-                cursor: pointer;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-            }
+        .menu-toggle {
+            display: block;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: var(--text);
+            z-index: 1001; /* ensure it sits above */
+        }
 
+
+            
+            
             /* Projects intro */
             .projects-intro h2 {
                 font-size: 2.5rem;
@@ -356,12 +360,11 @@
 <body>
 
 <div class="container">
-
     <header class="header">
         <h1 style="font-size: 25px;">Vipin Gautam</h1>
-        <!-- <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
-        </div> -->
+        </div>
         <nav class="nav">
             <a href="index.html">Home</a>
             <a href="index.html#research">Research</a>
