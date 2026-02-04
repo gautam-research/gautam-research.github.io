@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 		
 		<style>
 			:root {
@@ -245,6 +246,16 @@
 				border-radius: 16px;
 			}
 
+			/* Styling for the active page link */
+			.nav a.active {
+				color: var(--primary);
+				font-weight: 700;
+			}
+
+			.nav a.active::after {
+				width: 100%; /* Keeps the underline visible for the current page */
+			}
+
 			.hero-content {
 				max-width: 600px;
 				animation: fadeIn 1s ease-in-out;
@@ -308,12 +319,19 @@
 				box-shadow: var(--shadow);
 				animation: float 4s ease-in-out infinite;
 			}
+			
+			/* Add this to your CSS */
+			#research, #publications, #contact {
+				scroll-margin-top: 100px; /* Adjust this value to match your header height */
+			}
 
 			.research-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 				gap: 2rem;
-				margin: 4rem 0;
+				margin: 2rem auto 4rem auto; /* Added 'auto' for horizontal centering */
+				width: 100%;
+				justify-content: center; /* Centers cards if there are only 1 or 2 */
 			}
 
 			.research-card {
@@ -619,7 +637,7 @@
 			<nav class="nav" id="navMenu">
 				<a href="#research"><i class="fas fa-infinity"></i> Research</a>
 				<a href="#publications"><i class="fas fa-book"></i> Publications</a>
-				<a href="projects.html"><i class="fas fa-folder-open"></i> Activities</a>
+				<a href="activities.html"><i class="fas fa-folder-open"></i> Activities</a>
 				<a href="venue.html"><i class="fas fa-landmark"></i> Conferences & Journals List</a>
 				<a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
 				<a href="index.html"><i class="fas fa-home"></i> Home</a>
@@ -770,79 +788,22 @@
 			</div>
 			</section>
 
-
 			<section id="publications">
-				<!-- <h2>Publication List</h2> -->
 				<h3 class="wn-title">
-				  <i class="fas fa-file-alt"></i>
-				  Publication List
+					<i class="fas fa-file-alt"></i>
+					Featured Publications
 				</h3>
 				<div style="height: 15px;"></div>
 
-				<!-- <button id="reset-filter" style="margin-top: 20px; padding: 10px 20px; background-color: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;">
-					Show All Publications
-				</button> -->
-				<ul class="publication-list">
-					<li class="publication-item" data-category="low-cost-sensors">
-						<h4>RGB-IR Object Detection in Aerial Imagery via Spectral-Aware Augmentation Techniques</h4>
-						<p>International Conference On Emerging Technology In Autonomous Aerial Vehicles (ETAAV), IISC Bangalore • 2025 </p>
-						<!-- <a href="https://ieeexplore.ieee.org/document/10884119" target="_blank">View Paper →</a> -->
-					</li>
-
-					<li class="publication-item" data-category="low-cost-sensors">
-						<h4>UAV Based Aerial Object Imagery for Animal Ecology</h4>
-						<p>International Conference On Emerging Technology In Autonomous Aerial Vehicles (ETAAV), IISC Bangalore • 2025 </p>
-						<!-- <a href="https://ieeexplore.ieee.org/document/10884119" target="_blank">View Paper →</a> -->
-					</li>
-
-					<li class="publication-item" data-category="aerosols-exposure">
-						<h4>AI-Powered Surveillance for Smart Cities</h4>
-						<p>Book: Internet of Vehicles and Computer Vision Solutions for Smart City Transformations • 2025 </p>
-						<a href="https://link.springer.com/chapter/10.1007/978-3-031-72959-1_11" target="_blank">View Paper →</a>
-					</li>
-
-					<li class="publication-item" data-category="low-cost-sensors">
-						<h4>VATML: Towards On Device Ventricular Arrhythmia Detection using TinyML</h4>
-						<p>IEEE International Symposium on Smart Electronic Systems (iSES) • 2024 | 🏅Best Paper</p>
-						<a href="https://ieeexplore.ieee.org/document/10884119" target="_blank">View Paper →</a>
-					</li>
-
-					<li class="publication-item" data-category="low-cost-sensors">
-						<h4>SkyGuard: Semi-Supervised Drone Technology for Real-time Traffic Rule Enforcement</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings | 🏅Best Paper</p>
-						<a href="https://doi.org/10.1007/978-3-031-93691-3_10" target="_blank">View Paper →</a>
-					</li>
-
-					<li class="publication-item" data-category="low-cost-sensors">
-						<h4>HyP-ECA: An Attention for Aerial Tree Crown Delineation and Species classification</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings</p>
-						<a href="https://doi.org/10.1007/978-3-031-93691-3_17" target="_blank">View Paper →</a>
-					</li>
-
-					<li class="publication-item" data-category="low-cost-sensors">
-						<h4>SegCapNet: Enhancing E-Commerce Visual Search with U2-Net Segmentation and BLIP Captioning</h4>
-						<p>International Intelligent Computing and Technology Conference (ICTCon)  • 2024 | In Proceedings</p>
-						<!-- <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000055" target="_blank">View Paper →</a> -->
-					</li>
-
-					<li class="publication-item" data-category="aerosols-exposure">
-						<h4>YOLOv9++: An Improved YOLOv9 Detector for Plant Biometrics using Pseudo-Labels</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2024 | In Proceedings</p>
-						<a href="https://doi.org/10.1007/978-3-031-93688-3_13" target="_blank">View Paper →</a>
-					</li>
-				
-					<li class="publication-item" data-category="air-quality">
-						<h4>YOLORe-IDNet: An Efficient Multi-Camera System for Person-Tracking</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2023</p>
-						<a href="https://doi.org/10.1007/978-3-031-58181-6_16" target="_blank">View Paper →</a>
-					</li>
-
-					<li class="publication-item" data-category="aerosols-exposure">
-						<h4>Joint-YODNet: A Light-weight Object Detector for UAVs to Achieve Above 100fps.</h4>
-						<p>International Conference on Computer Vision and Image Processing • 2023</p>
-						<a href="https://doi.org/10.1007/978-3-031-58174-8_47" target="_blank">View Paper →</a>
-					</li>
+				<ul class="publication-list" id="dynamic-pub-list">
+					<p style="text-align: center; color: var(--primary);">Synchronizing latest research...</p>
 				</ul>
+
+				<div style="text-align: center; margin-top: 2rem;">
+					<a href="publications.html" class="hero-cta-button" style="text-decoration: none; background: var(--primary); color: white; padding: 10px 20px; border-radius: 5px;">
+						View All Publications
+					</a>
+				</div>
 			</section>
 
 			<footer class="footer" id="contact" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; padding: 2rem;">
@@ -884,153 +845,99 @@
 			</footer>
 		</div>
 
+
+
 		<script>
-			function toggleMenu() {
-			const nav = document.getElementById('navMenu');
-			const toggle = document.getElementById('menuToggle');
+    function toggleMenu() {
+        const nav = document.getElementById('navMenu');
+        const toggle = document.getElementById('menuToggle');
+        nav.classList.toggle('show');
+        toggle.classList.toggle('hidden');
+    }
 
-			nav.classList.toggle('show');
-			toggle.classList.toggle('hidden'); // Hide the ☰ icon when menu is open
-		}
+    // Carousel and Click Animations
+    const initCarousel = () => {
+        const cards = document.querySelectorAll('.wn-card');
+        const dots = document.querySelectorAll('.wn-dot');
+        const prevBtn = document.querySelector('[data-direction="prev"]');
+        const nextBtn = document.querySelector('[data-direction="next"]');
+        let currentIndex = 0;
+        
+        function showCard(index) {
+            cards.forEach(card => card.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+        
+        prevBtn.addEventListener('click', () => showCard((currentIndex - 1 + cards.length) % cards.length));
+        nextBtn.addEventListener('click', () => showCard((currentIndex + 1) % cards.length));
+        dots.forEach((dot, index) => dot.addEventListener('click', () => showCard(index)));
+        
+        setInterval(() => showCard((currentIndex + 1) % cards.length), 5000);
+    };
 
-		// Hide menu and show ☰ icon again when any item is clicked
-		document.addEventListener('DOMContentLoaded', () => {
-			const navLinks = document.querySelectorAll('#navMenu a');
-			const nav = document.getElementById('navMenu');
-			const toggle = document.getElementById('menuToggle');
+    const initClickAnimations = () => {
+        const interactiveElements = document.querySelectorAll('button, .research-card, .nav a, .wn-nav-btn, .wn-dot');
+        interactiveElements.forEach(el => {
+            el.addEventListener('click', function() {
+                this.classList.add('click-animate');
+                setTimeout(() => this.classList.remove('click-animate'), 300);
+            });
+        });
+    };
 
-			navLinks.forEach(link => {
-				link.addEventListener('click', () => {
-					nav.classList.remove('show');
-					toggle.classList.remove('hidden'); // Show ☰ icon again
-				});
-			});
-		});
+    // --- NEW LOAD FEATURED PUBLICATIONS LOGIC ---
+    const loadFeaturedPublications = async () => {
+        const targetList = document.getElementById('dynamic-pub-list');
+        
+        try {
+            // Fetch the binary Excel file
+            const response = await fetch('data/publication.xlsx');
+            if (!response.ok) throw new Error("File not found");
 
+            const arrayBuffer = await response.arrayBuffer();
+            
+            // Parse binary data using SheetJS
+            const workbook = XLSX.read(new Uint8Array(arrayBuffer), { type: 'array' });
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            
+            // Convert to JSON
+            const allPublications = XLSX.utils.sheet_to_json(worksheet);
 
-			// Intersection Observer for fade-in animation
-			const animateOnScroll = () => {
-				const observer = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('visible');
-							observer.unobserve(entry.target); // Stop observing after animation
-						}
-					});
-				}, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+            if (allPublications.length > 0) {
+                targetList.innerHTML = ''; 
 
-				document.querySelectorAll('.research-card, .publication-item').forEach((el) => {
-					el.classList.add('fade-in'); // Add initial styles via CSS
-					observer.observe(el);
-				});
-			};
+                // Take top 3 items for home page
+                const featured = allPublications.slice(0, 3);
 
-			// Filter Publications on Click
-			const filterPublications = () => {
-				const researchCards = document.querySelectorAll('.research-card');
-				const publicationItems = document.querySelectorAll('.publication-item');
-				const resetButton = document.getElementById('reset-filter');
+                featured.forEach(pub => {
+                    const li = document.createElement('li');
+                    li.className = 'publication-item';
+                    
+                    // Case-sensitive header matching
+                    li.innerHTML = `
+                        <h4>${pub.Title}</h4>
+                        <p>${pub.Venue} • ${pub.Year} ${pub.Award ? `| 🏅 ${pub.Award}` : ''}</p>
+                        ${pub.Link ? `<a href="${pub.Link}" target="_blank">Read Paper →</a>` : ''}
+                    `;
+                    targetList.appendChild(li);
+                });
+            }
+        } catch (error) {
+            console.error('Error loading featured publications:', error);
+            targetList.innerHTML = '<p>Latest research available in the <a href="publications.html">Publications tab</a>.</p>';
+        }
+    };
 
-				// Function to filter publications based on category
-				const filterByCategory = (category) => {
-					publicationItems.forEach(item => {
-						if (item.getAttribute('data-category') === category) {
-							item.style.display = 'block';
-							item.style.opacity = '1';
-							item.style.transform = 'translateY(0)';
-						} else {
-							item.style.display = 'none';
-							item.style.opacity = '0';
-							item.style.transform = 'translateY(20px)';
-						}
-					});
-				};
-
-				// Show all publications by default
-				publicationItems.forEach(item => {
-					item.style.display = 'block';
-					item.style.opacity = '1';
-				});
-
-				// Add click event listeners to research cards
-				researchCards.forEach(card => {
-					card.addEventListener('click', () => {
-						const category = card.getAttribute('data-category');
-						filterByCategory(category);
-					});
-				});
-
-				// Reset to show all publications
-				resetButton.addEventListener('click', () => {
-					publicationItems.forEach(item => {
-						item.style.display = 'block';
-						item.style.opacity = '1';
-						item.style.transform = 'translateY(0)';
-					});
-				});
-			};
-			
-			// What's New Carousel
-			const initCarousel = () => {
-				const cards = document.querySelectorAll('.wn-card');
-				const dots = document.querySelectorAll('.wn-dot');
-				const prevBtn = document.querySelector('[data-direction="prev"]');
-				const nextBtn = document.querySelector('[data-direction="next"]');
-				let currentIndex = 0;
-				
-				function showCard(index) {
-					cards.forEach(card => card.classList.remove('active'));
-					dots.forEach(dot => dot.classList.remove('active'));
-					
-					cards[index].classList.add('active');
-					dots[index].classList.add('active');
-					currentIndex = index;
-				}
-				
-				prevBtn.addEventListener('click', () => {
-					let newIndex = (currentIndex - 1 + cards.length) % cards.length;
-					showCard(newIndex);
-				});
-				
-				nextBtn.addEventListener('click', () => {
-					let newIndex = (currentIndex + 1) % cards.length;
-					showCard(newIndex);
-				});
-				
-				dots.forEach((dot, index) => {
-					dot.addEventListener('click', () => showCard(index));
-				});
-				
-				// Auto-rotate every 5 seconds
-				setInterval(() => {
-					let newIndex = (currentIndex + 1) % cards.length;
-					showCard(newIndex);
-				}, 5000);
-			};
-			
-			// Click animations
-			const initClickAnimations = () => {
-				const interactiveElements = document.querySelectorAll(
-					'button, .research-card, .nav a, .publication-item, .wn-nav-btn, .wn-dot'
-				);
-				
-				interactiveElements.forEach(el => {
-					el.addEventListener('click', function() {
-						this.classList.add('click-animate');
-						setTimeout(() => {
-							this.classList.remove('click-animate');
-						}, 300);
-					});
-				});
-			};
-
-			// Initialize everything
-			document.addEventListener('DOMContentLoaded', () => {
-				animateOnScroll();
-				filterPublications();
-				initCarousel();
-				initClickAnimations();
-			});
-		</script>
+    // Single initialization point
+    document.addEventListener('DOMContentLoaded', () => {
+        initCarousel();
+        initClickAnimations();
+        loadFeaturedPublications();
+    });
+</script>
+		
 	</body>
 </html>
