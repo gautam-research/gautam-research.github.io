@@ -463,6 +463,184 @@
 				}
 			}
 
+			/* =========================
+   GLOBAL RESPONSIVE FIXES
+========================= */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================
+   TABLET + MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Container */
+    .container {
+        padding: 1rem;
+        border-radius: 0;
+    }
+
+    /* Header */
+    .header {
+        padding: 1rem 0;
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 2rem !important;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding-left: 0;
+    }
+
+    .hero p::before {
+        display: none;
+    }
+
+    /* Profile Image */
+    .profile-img {
+        width: 220px;
+        height: 220px;
+        margin-top: 0;
+    }
+
+    /* Navigation */
+    .nav {
+        gap: 0.8rem;
+        padding-top: 1rem;
+    }
+
+    .nav a {
+        background: rgba(255,255,255,0.5);
+        font-size: 16px;
+    }
+
+    /* Research Cards */
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .research-card {
+        padding: 1.2rem;
+    }
+
+    .research-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .research-card p {
+        font-size: 0.95rem;
+    }
+
+    /* Publications */
+    .publication-item {
+        padding: 1rem;
+    }
+
+    .publication-item h4 {
+        font-size: 1rem;
+    }
+
+    .publication-item p {
+        font-size: 0.92rem;
+    }
+
+    /* What's New */
+    .whats-new-enhanced {
+        margin: 2rem auto;
+    }
+
+    .wn-card {
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .wn-content {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .contact-network-wrapper {
+        padding: 0;
+        gap: 2rem;
+    }
+
+    .contact-box {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    /* Buttons */
+    button {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 480px) {
+
+    .hero h2 {
+        font-size: 1.7rem !important;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .wn-title {
+        font-size: 1.2rem;
+    }
+
+    .publication-item {
+        padding: 0.9rem;
+    }
+
+}
+
 			/* Animation styles */
 			.fade-in {
 				opacity: 0;

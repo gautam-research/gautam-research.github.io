@@ -4,7 +4,13 @@
     <title>Activities | Vipin Gautam</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- XLSX Library -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
     <style>
         :root {
             --bg: #f0f2f5;
@@ -25,84 +31,71 @@
         }
 
         body {
-				background-color: #f4f6fb; /* clean light bluish-gray background */
-				background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* structured geometric pattern */
-				background-repeat: repeat;
-				background-size: auto;
-				animation: subtleBackgroundMove 60s linear infinite;
-				color: var(--text);
-				line-height: 1.6;
-				overflow-x: hidden;
-			}.container {
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
-	border: 1px solid rgba(0, 0, 0, 0.05);
-	border-radius: 12px;
-	background: rgba(255, 255, 255, 0.547); /* semi-transparent */
-	backdrop-filter: blur(6px);
-}
+            background-color: #f4f6fb;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-repeat: repeat;
+            background-size: auto;
+            animation: subtleBackgroundMove 60s linear infinite;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-            @keyframes subtleBackgroundMove {
-				0% { background-position: 0 0; }
-				100% { background-position: 100% 100%; }
-			}
-			
-			/* Click animation */
-			@keyframes clickPulse {
-				0% { transform: scale(1); }
-				50% { transform: scale(0.95); }
-				100% { transform: scale(1); }
-			}
-			
-			.click-animate {
-				animation: clickPulse 0.3s ease;
-			}
-        
-        			.container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 2rem;
-			}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.547);
+            backdrop-filter: blur(6px);
+        }
 
-			.header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 2rem 0;
-			position: sticky;
-			top: 0;
-			background-color: rgba(244, 246, 251, 0.6); /* light transparent */
-			backdrop-filter: blur(6px); /* subtle glassy effect */
-			z-index: 1000;
-			}
+        @keyframes subtleBackgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            background-color: rgba(244, 246, 251, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+        }
 
-			.nav {
-				display: flex;
-				gap: 2rem;
-			}
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
 
-			.nav a {
-				color: var(--text);
-				text-decoration: none;
-				position: relative;
-				padding: 0.5rem 0;
-				transition: var(--transition);
-			}
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
 
-			.nav a::after {
-				content: '';
-				position: absolute;
-				width: 0;
-				height: 2px; /* Adjusted for a thinner underline */
-				bottom: 0;
-				left: 0;
-				background: var(--primary);
-				transition: var(--transition);
-			}
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary);
+            transition: var(--transition);
+        }
 
-			.nav a:hover::after {
-				width: 100%;
-			}
+        .nav a:hover::after {
+            width: 100%;
+        }
 
         .projects-intro {
             text-align: center;
@@ -110,16 +103,9 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        .projects-intro h2 {
-            font-size: 3.5rem;
+        .projects-intro h3 {
+            font-size: 2rem;
             color: var(--primary);
-        }
-
-        .projects-intro p {
-            font-size: 1.2rem;
-            color: var(--text);
-            opacity: 0.8;
-            margin-top: 0.5rem;
         }
 
         .projects-grid {
@@ -135,6 +121,11 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .project-card img {
@@ -158,14 +149,6 @@
             line-height: 1.6;
         }
 
-        .project-card .truncated-text {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
         .project-card .links {
             display: flex;
             justify-content: space-between;
@@ -185,199 +168,60 @@
             color: var(--secondary);
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Modal Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-content .close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        .modal-content h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .modal-content p {
-            font-size: 1em;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        
-			.contact-network-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-  margin-top: 2rem;
-  padding: 0 2rem; /* adjust or remove for exact edge-to-edge */
-  box-sizing: border-box;
-}
-
-.contact-box {
-  min-width: 250px;
-  flex: 1;
-  max-width: 400px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  justify-content: flex-start; /* default: left-aligned on large screens */
-}
-
-        /* @media (max-width: 768px) {
-        .social-icons {
-            justify-content: center; /* center on small screens */
-        }
-        } */
-
-
-        /* footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 4rem 0;
-            border-top: 1px solid var(--primary);
-            margin-top: 4rem;
-        }
-
-        footer h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        footer p, footer a {
-            color: var(--text);
-            opacity: 0.8;
-            text-decoration: none;
-        }
-
-        footer button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        footer button:hover {
-            background: var(--secondary);
-        } */
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Mobile-specific styles */
-         .header-top {
-        flex-direction: row;
-    }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            user-select: none;
+            color: var(--primary);
+            position: relative;
+            z-index: 1001;
+        }
 
-            .nav {
-                width: 100%;
-            }
+        .menu-toggle.hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
 
             .menu-toggle {
-			display: none;
-			font-size: 24px;
-			cursor: pointer;
-			user-select: none;
-			color: var(--primary);
-			position: relative;
-			z-index: 1001; 
-			}
+                display: block;
+            }
 
-			.menu-toggle.hidden {
-			display: none !important; /* hide it when toggled */
-			}
-
-
-			@media (max-width: 768px) {
-			.menu-toggle {
-				display: block;
-			}
-
-			.nav {
-                display: none; /* Hide the nav by default on mobile */
+            .nav {
+                display: none;
                 flex-direction: column;
                 gap: 1.5rem;
                 width: 100%;
             }
 
-			.nav.show {
-				display: flex;
-			}
+            .nav.show {
+                display: flex;
+            }
 
-			.nav a {
-				font-size: 17px;
-				padding: 0.5rem 1rem;      /* small vertical padding */
-				line-height: 1.0;            /* tighter line spacing */
-				width: 100%;
-				text-align: center;
-				border-radius: 4px;
-				white-space: nowrap;
-				display: block;              /* ensures full width clickable area */
-				transition: background 0.3s ease;
-			}
-
+            .nav a {
+                font-size: 17px;
+                padding: 0.5rem 1rem;
+                line-height: 1.0;
+                width: 100%;
+                text-align: center;
+                border-radius: 4px;
+                white-space: nowrap;
+                display: block;
+                transition: background 0.3s ease;
+            }
 
             .nav a:hover {
                 background-color: rgba(0, 0, 0, 0.05);
             }
-		
-     
-            /* Projects intro */
-            .projects-intro h2 {
-                font-size: 2.5rem;
-            }
 
-            .projects-intro p {
-                font-size: 1rem;
-            }
-
-            /* Projects grid */
             .projects-grid {
-                grid-template-columns: 1fr; /* Single column for mobile */
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
@@ -398,38 +242,22 @@
                 gap: 0.5rem;
                 align-items: flex-start;
             }
-
-            /* Footer */
-            footer {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem 0;
-            }
-
-            footer h3 {
-                font-size: 1.2rem;
-            }
-
-            footer p {
-                font-size: 0.9rem;
-            }
-
-            footer button {
-                width: 100%;
-                margin-top: 1rem;
-            }
         }
-        
     </style>
 </head>
+
 <body>
 
 <div class="container">
+
     <header class="header">
-			<h1 style="font-size: 25px;">Vipin Gautam</h1>
-			<div class="menu-wrapper">
-			<div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</div>
-			<nav class="nav" id="navMenu">
+        <h1 style="font-size: 25px;">Vipin Gautam</h1>
+
+        <div class="menu-wrapper">
+
+            <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</div>
+
+            <nav class="nav" id="navMenu">
                 <a href="index.html#research"><i class="fas fa-infinity"></i> Research</a>
                 <a href="index.html#publications"><i class="fas fa-book"></i> Publications</a>
                 <a href="activities.html"><i class="fas fa-folder-open"></i> Activities</a>
@@ -438,206 +266,109 @@
                 <a href="index.html"><i class="fas fa-home"></i> Home</a>
             </nav>
 
-			</div>
-	</header>
-
+        </div>
+    </header>
 
     <section class="projects-intro">
-        <!-- <h2>Projects</h2> -->
-        <h3>Explore my additional activities and projects </h3>
+        <h3>Explore my additional activities and projects</h3>
     </section>
 
-    <section class="projects-grid">
-        <!-- Madagascar Mobility Project -->
-
-        <div class="project-card">
-            <img src="images/ETAAV.png" alt="ETAAV - 2025, IISC Bangalore">
-            <h3>ETAAV - 2025, IISC Bangalore</h3>
-            <p>I had the privilege of presenting our research at ETAAV 2025, hosted by IISc Bangalore. 
-            Our work included <em>RGB-IR Object Detection in Aerial Imagery via Spectral-Aware Augmentation Techniques</em> 
-            and <em>UAV-Based Aerial Object Imagery for Animal Ecology</em>. It was an exciting experience with my supervisors, 
-            Prof. Sharad Sinha and Prof. Shitala Prasad, whose invaluable guidance shaped this work. 
-            We were also proud to secure <strong>1st Place</strong> in the UAV EO-IR Slant Angle Object Detection Challenge on Kaggle.</p>
-            <div class="links">
-                <!-- <a href="#" onclick="openPopup('madagascar')">Read More <i class="fas fa-arrow-right"></i></a> -->
-                <a href="https://sites.google.com/view/etaav2025" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="images/img1.jpeg" alt="IInvenTiv - 2025, IIT Madras">
-            <h3>IInvenTiv - 2025, IIT Madras</h3>
-            <p>IInvenTiv is a mega R&D fair where all IITs, NITs, IISERs, and other top 50 NIRF-ranked institutions in the country come together to showcase their research and development. 
-            Proud to represent our institute and present our cutting-edge research work in law enforcement, specifically on helmet detection in aerial views.</p>
-            <div class="links">
-                <!-- <a href="#" onclick="openPopup('madagascar')">Read More <i class="fas fa-arrow-right"></i></a> -->
-                <a href="https://www.linkedin.com/posts/indian-institute-of-technology-iit-goa_the-3rd-edition-of-iinventive-an-rd-innovation-activity-7301209027122708482-ox6a?utm_source=share&utm_medium=member_desktop&rcm=ACoAACDoXZoBXrFytzE6mv-IJJ-EaBxXss4jFTA" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <!-- DUDE Initiative -->
-        <div class="project-card">
-            <img src="images/img2.JPG" alt="DUDE Initiative">
-            <h3>CVIP 2024 IIITM Kancheepuram</h3>
-            <p>📝 Presented 3 Research Papers at CVIP 2024, IIITM Kancheepuram.</p>
-            <p>🏅 Best Paper Award – SkyGuard: Semi-Supervised Drone Technology for Real-time Traffic Rule Enforcement.</p>
-
-            <div class="links">
-                <!-- <a href="#" onclick="openPopup('dude')">Read More <i class="fas fa-arrow-right"></i></a>
-                <a href="https://www.linkedin.com/posts/rajat-sharma-89421718b_cleardoc-innovation-climatetech-activity-7240731230432890880-OeyR?utm_source=share&utm_medium=member_desktop&rcm=ACoAACy0TTABJfjoN-Ye6BGv_AX-AiFSAXAzXxk" target="_blank">More <i class="fas fa-arrow-right"></i></a> -->
-                <a href="https://www.linkedin.com/posts/indian-institute-of-technology-iit-goa_iitgoa-researchexcellence-computervision-activity-7276981386874413056-K43E?utm_source=share&utm_medium=member_desktop&rcm=ACoAACDoXZoBXrFytzE6mv-IJJ-EaBxXss4jFTA" target="_blank">Peek <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-    
-        <!-- InCITIES Program -->
-        <div class="project-card">
-            <img src="images/img3.jpg" alt="Sensor Calibration">
-            <h3>CVIP 2023, IIT Jammu</h3>
-            <p>At CVIP 2023 IIT Jammu, With Prof. Venkatesh Kamat and Prof. Shitala Prasad</p>
-            <!-- <div class="links">
-                <a href="#" onclick="openPopup('incities')">Read More <i class="fas fa-arrow-right"></i></a>
-                <a href="https://www.linkedin.com/posts/rajat-sharma-89421718b_sharing-the-journey-of-my-incities-program-activity-7191300309850226688-t5Ti?utm_source=share&utm_medium=member_desktop&rcm=ACoAACy0TTABJfjoN-Ye6BGv_AX-AiFSAXAzXxk" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div> -->
-        </div>
-
-        <!-- CLEAR-Doc Entrepreneurship Bootcamp -->
-        <div class="project-card">
-            <img src="images/img4.jpg" alt="CLEAR-Doc Entrepreneurship Bootcamp">
-            <h3>Vibrant Goa Tech Summit 2024</h3>
-            <p>🎓 Represented our institute over 3 days</p>
-            <p>🏅 Received a special recognition award for our cutting-edge research in drone technology – an honour to showcase our innovations on such a platform!</p>
-            <div class="links">
-                <!-- <a href="#" onclick="openPopup('CLEAR-Doc Entrepreneurship Bootcamp')">Read More <i class="fas fa-arrow-right"></i></a> -->
-                <a href="https://iitgoa.ac.in/event-detail/?id=265" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <!-- MT180 Pitch -->
-        <div class="project-card">
-            <img src="images/img5.jpg" alt="MT180 Pitch">
-            <h3>Guest Lecture at Padre Conceição College Of Engineering</h3>
-            <p>Conducted a seminar on "TinyML for Healthcare and Deployment Challenges on Low-Power Edge Computing Boards"</p>
-            <div class="links">
-                <!-- <a href="#" onclick="openPopup('MT180 Pitch')">Read More <i class="fas fa-arrow-right"></i></a> -->
-                <a href="https://pccegoa.edu.in/2024/07/19/the-ace-student-chapter-installation-ceremony-2024-25/" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="images/img6.JPG" alt="MT180 Pitch">
-            <h3>Workshop arranged by Center for Drone Applications</h3>
-            <p>We hosted a national-level workshop with 100+ participants, where I delivered sessions on <em>Drones and Applications</em> and <em>Fundamentals of Drone Systems</em>.</p>
-            <div class="links">
-                <!-- <a href="#" onclick="openPopup('MT180 Pitch')">Read More <i class="fas fa-arrow-right"></i></a> -->
-                <!-- <a href="" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a> -->
-            </div>
-        </div>
-
-        <div class="project-card">
-        <img src="images/graduation.jpg" alt="M.Tech Graduation Ceremony">
-        <h3>M.Tech Graduation – Computer Science & Engineering</h3>
-        <p>I successfully graduated with an M.Tech degree in <strong>Computer Science and Engineering</strong>, receiving an <strong>A+</strong> grade in my thesis.</p>
-        <p>It was a proud moment to celebrate this milestone with peers and professors during the official graduation ceremony.</p>
-        <div class="links">
-            <!-- Optional: Add certificate or announcement link -->
-            <!-- <a href="your-certificate-or-post-link" target="_blank">View Certificate <i class="fas fa-arrow-right"></i></a> -->
-        </div>
-    </div>
-
-
-    </section>
-
-    <!-- Popup Modals -->
-    <div id="popup-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closePopup()">×</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-content"></p>
-        </div>
-    </div>
-
-   			
+    <!-- Dynamic Grid -->
+    <section class="projects-grid" id="projectsGrid"></section>
 
 </div>
 
 <script>
-    // Toggle mobile menu
+
+    // Mobile menu toggle
     function toggleMenu() {
-			const nav = document.getElementById('navMenu');
-			const toggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('navMenu');
+        const toggle = document.getElementById('menuToggle');
 
-			nav.classList.toggle('show');
-			toggle.classList.toggle('hidden'); // Hide the ☰ icon when menu is open
-		}
+        nav.classList.toggle('show');
+        toggle.classList.toggle('hidden');
+    }
 
-    // Close nav on link click
+    // Close menu on click
     document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav a');
         const nav = document.querySelector('.nav');
-        const toggle = document.getElementById('menuToggle');
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('show');   // Hide the menu
+                nav.classList.remove('show');
             });
         });
     });
 
-    // Popup functionality
-    function openPopup(project) {
-        const modal = document.getElementById("popup-modal");
-        const modalTitle = document.getElementById("modal-title");
-        const modalContent = document.getElementById("modal-content");
+    // Load Excel Data
+    async function loadProjects() {
 
-        let title, content;
-        switch (project) {
-            case 'dude':
-                title = "DUDE Initiative";
-                content = "A citizen-driven platform merging real-time pollution data with habit incentives to encourage eco-friendly behavior.Proud to have represented The 𝗗𝗨𝗗𝗘 𝗜𝗻𝗶𝘁𝗶𝗮𝘁𝗶𝘃𝗲 (c𝗶𝘁𝗶𝘇𝗲𝗻-D�_r𝗶𝘃𝗲𝗻, U𝗽𝘀𝗰𝗮𝗹𝗮𝗯𝗹𝗲, 𝗮𝗻𝗱 D𝗶𝗴𝗶𝘁𝗮𝗹 E𝗰𝗼𝗰𝗶𝘁𝗶𝗲𝘀) alongside an amazing team. 🌍💡 Victoria Cotella, Faiz Iqbal and Luka. 𝗗𝗨𝗗𝗘 is about using tech and data to make sustainable living not just possible, but rewarding. Whether you’re a student, taxpayer, or part of a minority group, we’re building a future where your eco-friendly choices pay off—literally. 🌱 ";
-                break;
-            case 'madagascar':
-                title = "Madagascar Mobility Project";
-                content = `Culmination of an international project for my Ph.D. thesis, titled "Air Quality Evolution at the Local Scale in the Absence of a Calibration Reference Point." This ambitious endeavor was made possible through funding from the Department of GIE-GERS at Université Gustave Eiffel, the CLEAR-Doc COFUND, Université de Fianarantsoa, ​​and Madatlas Madagascar. <br><br>
-                Special thanks to Dr. Hasina Rakotonirainy, Dr. Hajalalaina Aimé Richard, my supervisors Andry Rico Razakamanantsoa and Agnes Jullien, and Erwann Rayssac for their support. We also thank Madatlas, the Municipality Office Fianarantsoa, Public Hospital Fianarantsoa, and Regional Transport Office Fianarantsoa for their contributions. The project's success was made possible by the dedication of student volunteers and the collaboration of various agencies.`;
-                break;
-            case 'incities':
-                title = "InCITIES Program";
-                content = `Sharing the Journey of my InCITIES Program! Reflecting on this incredible journey fills me with excitement! Alongside a truly inspiring cohort, we delved deep into crucial topics such as sustainable mobility, urban planning, air quality, and transportation infrastructure resilience. <br><br>
-                One major highlight for me was our hands-on approach to tackling real-world issues, particularly in enhancing sustainable mobility around St. Gorazde Elementary School and Kindergarten. Collaborating with Žilina's esteemed architecture bureau, we not only collected valuable data but also brainstormed innovative approaches to address the challenges at hand. <br><br>
-                I am profoundly grateful for the guidance and mentorship provided by Yannick Cornet, Tibor Petrov, Christina Georgouli, Lienka, Andry Rico RAZAKAMANANTSOA, Agnes JULLIEN, Virginie Etienne and GERS - Gustave Eiffel University, Laboratoire GIE (Univ Eiffel), Université Gustave Eiffel. Their support has been instrumental in shaping our journey.`;
-                break;
-            case 'CLEAR-Doc Entrepreneurship Bootcamp':
-                title = "CLEAR-Doc Entrepreneurship Bootcamp";
-                content = `💡 Can air talk? We made it scream.
-Meet NICAIR – our idea born during the entrepreneurship bootcamp at Université Gustave Eiffel: smart sensors, real-time data, and citizen power to fight air pollution.
-From “what if?” to “why not?”, it was a week of wild ideas, sharp minds, and big ambition.
-Huge thanks to hashtag #CLEARDoc, our mentors (Amandine Bugnicourt, PhD, Guillaume Berteloot, Alexandre Huu Tam Nguyen, Milad Moazzam, PhD), and everyone who helped turn chaos into concept. `;
-                break;
-            case 'MT180 Pitch':
-                title = "MT180 Pitch";
-                content = `🚀 One stage. Two bold ideas. One unforgettable week in Paris.
-🎓 Kicked things off with my MT180 thesis pitch — 180 seconds to distill months of research into something punchy and public-facing.
- Sharing a quick snippet below — hope it sparks your curiosity!`;
-                break;
+        try {
+
+            const response = await fetch('data/activities.xlsx');
+
+            const arrayBuffer = await response.arrayBuffer();
+
+            const workbook = XLSX.read(arrayBuffer, {
+                type: 'array'
+            });
+
+            const sheetName = workbook.SheetNames[0];
+
+            const worksheet = workbook.Sheets[sheetName];
+
+            const data = XLSX.utils.sheet_to_json(worksheet);
+
+            const grid = document.getElementById('projectsGrid');
+
+            data.forEach(project => {
+
+                const card = document.createElement('div');
+
+                card.className = 'project-card';
+
+                card.innerHTML = `
+                    <img src="${project.image}" alt="${project.title}">
+
+                    <h3>${project.title}</h3>
+
+                    <p>${project.description}</p>
+
+                    <div class="links">
+                        ${
+                            project.link
+                            ?
+                            `
+                            <a href="${project.link}" target="_blank">
+                                ${project.button || 'Learn More'}
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            `
+                            :
+                            ''
+                        }
+                    </div>
+                `;
+
+                grid.appendChild(card);
+
+            });
+
+        } catch (error) {
+
+            console.error('Error loading Excel file:', error);
+
+            document.getElementById('projectsGrid').innerHTML = `
+                <p style="text-align:center; font-size:1.2rem;">
+                    Failed to load activities.xlsx
+                </p>
+            `;
         }
-
-        modalTitle.innerHTML = title;
-        modalContent.innerHTML = content;
-        modal.style.display = "flex";
     }
 
-    function closePopup() {
-        document.getElementById("popup-modal").style.display = "none";
-    }
+    loadProjects();
 
-    // Close modal if clicked outside the content
-    window.onclick = function(event) {
-        const modal = document.getElementById("popup-modal");
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
 </script>
 
 </body>
