@@ -189,32 +189,39 @@
 
         @media (max-width: 768px) {
 
+            .header {
+                    align-items: flex-start;
+                }
+
+                .menu-wrapper {
+                    position: relative;
+                    margin-left: auto;
+                }
+
+
             .menu-toggle {
                 display: block;
             }
 
             .nav {
-                display: none;
-                flex-direction: column;
-                gap: 1.5rem;
-                width: 100%;
-            }
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: right;
+	}
 
             .nav.show {
                 display: flex;
             }
 
             .nav a {
-                font-size: 17px;
-                padding: 0.5rem 1rem;
-                line-height: 1.0;
-                width: 100%;
-                text-align: center;
-                border-radius: 4px;
-                white-space: nowrap;
-                display: block;
-                transition: background 0.3s ease;
-            }
+		background: transparent;
+		padding: 0;
+		border-radius: 0;
+		font-size: 18px;
+		white-space: nowrap;
+		text-align: right;
+	}
 
             .nav a:hover {
                 background-color: rgba(0, 0, 0, 0.05);
@@ -282,12 +289,23 @@
 
     // Mobile menu toggle
     function toggleMenu() {
-        const nav = document.getElementById('navMenu');
-        const toggle = document.getElementById('menuToggle');
+						const nav = document.getElementById('navMenu');
+						const toggle = document.getElementById('menuToggle');
 
-        nav.classList.toggle('show');
-        toggle.classList.toggle('hidden');
-    }
+						nav.classList.toggle('show');
+						toggle.classList.toggle('hidden');
+					}
+
+					// Close mobile menu after clicking a nav link
+					document.querySelectorAll('#navMenu a').forEach(link => {
+						link.addEventListener('click', () => {
+							const nav = document.getElementById('navMenu');
+							const toggle = document.getElementById('menuToggle');
+
+							nav.classList.remove('show');
+							toggle.classList.remove('hidden');
+						});
+					});
 
     // Close menu on click
     document.addEventListener('DOMContentLoaded', () => {

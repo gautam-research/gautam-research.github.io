@@ -102,30 +102,48 @@
             display: none;
             font-size: 24px;
             cursor: pointer;
+            user-select: none;
             color: var(--primary);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .menu-toggle.hidden {
+            display: none !important;
         }
 
         @media(max-width: 768px) {
+
+          .header {
+                    align-items: flex-start;
+                }
+
+                .menu-wrapper {
+                    position: relative;
+                    margin-left: auto;
+                }
+
             .menu-toggle { display: block; }
 
             .nav {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-            }
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: right;
+	}
 
             .nav.show {
                 display: flex;
             }
 
             .nav a {
-                font-size: 17px;
-                text-align: center;
-                padding: 0.75rem;
-                border-radius: 5px;
-                background: rgba(255,255,255,0.4);
-            }
+		background: transparent;
+		padding: 0;
+		border-radius: 0;
+		font-size: 18px;
+		white-space: nowrap;
+		text-align: right;
+	}
         }
 
         /* ---------- GRID LAYOUT FOR VENUE CARDS ---------- */
@@ -191,9 +209,23 @@
 <script>
     // Mobile Menu
     function toggleMenu() {
-        document.getElementById("navMenu").classList.toggle("show");
-        document.getElementById("menuToggle").classList.toggle("hidden");
-    }
+						const nav = document.getElementById('navMenu');
+						const toggle = document.getElementById('menuToggle');
+
+						nav.classList.toggle('show');
+						toggle.classList.toggle('hidden');
+					}
+
+					// Close mobile menu after clicking a nav link
+					document.querySelectorAll('#navMenu a').forEach(link => {
+						link.addEventListener('click', () => {
+							const nav = document.getElementById('navMenu');
+							const toggle = document.getElementById('menuToggle');
+
+							nav.classList.remove('show');
+							toggle.classList.remove('hidden');
+						});
+					});
 
     document.getElementById("menuToggle").addEventListener("click", toggleMenu);
 
